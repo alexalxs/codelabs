@@ -53,6 +53,9 @@ class _WebViewStackState extends State<WebViewStack> {
         },
       ),
     );
+    widget.controller.loadRequest(
+      Uri.parse('https://flutter.dev'),
+    );
   }
 
   @override
