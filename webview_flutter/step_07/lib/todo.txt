@@ -1,0 +1,2 @@
+impedir navegar se não houver internet
+ao tentar navegar checar valor no objeto
