@@ -87,7 +87,7 @@ class _WebViewStackState extends State<WebViewStack> {
           ),
         Consumer<Myconnectivity>(builder: (context, myconnectivity, child) {
           isOffline = myconnectivity.offline;
-          return Text('${myconnectivity.offline}');
+          return Container();
         }),
         if (isOffline) buildAlertIconWithText(),
       ],

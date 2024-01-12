@@ -38,7 +38,7 @@ class NoInternetWidget extends StatelessWidget {
         height: double.infinity, // Ocupa a altura total da tela
         alignment: Alignment.center, // Alinha o filho no centro
         child: const Text(
-          'conecte a internet para', // A frase a ser exibida
+          'conecte-se a internet', // A frase a ser exibida
           style: TextStyle(
             color: Colors.white, // Cor do texto
             fontSize: 24, // Tamanho da fonte

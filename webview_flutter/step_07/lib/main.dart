@@ -55,7 +55,7 @@ class _WebViewAppState extends State<WebViewApp> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text('${myconnectivity.offline}'),
+                  // Text('${myconnectivity.offline}'),
                   if (!myconnectivity.offline)
                     Expanded(child: WebViewStack(controller: controller)),
                 ],
