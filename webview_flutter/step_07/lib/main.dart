@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import 'src/myconnectivity.dart';
 import 'src/navigation_controls.dart';
 import 'src/web_view_stack.dart';
 
@@ -42,7 +43,18 @@ class _WebViewAppState extends State<WebViewApp> {
           NavigationControls(controller: controller),
         ],
       ),
-      body: WebViewStack(controller: controller),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const MyConnectivity(
+            onStatusChanged: onStatusChanged,
+            // webViewController: myWebViewController,
+          ),
+          Expanded(child: WebViewStack(controller: controller)),
+        ],
+      ),
     );
   }
 }
+
+void onStatusChanged(String status) {}

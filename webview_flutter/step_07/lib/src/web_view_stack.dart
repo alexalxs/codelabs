@@ -16,6 +16,7 @@ class WebViewStack extends StatefulWidget {
 
 class _WebViewStackState extends State<WebViewStack> {
   var loadingPercentage = 0;
+  final String mySite = 'https://flutter.dev';
 
   @override
   void initState() {
@@ -39,7 +40,8 @@ class _WebViewStackState extends State<WebViewStack> {
         },
         onNavigationRequest: (navigation) {
           final host = Uri.parse(navigation.url).host;
-          if (host.contains('youtube.com')) {
+
+          if (!host.contains('flutter.dev')) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
@@ -54,7 +56,7 @@ class _WebViewStackState extends State<WebViewStack> {
       ),
     );
     widget.controller.loadRequest(
-      Uri.parse('https://flutter.dev'),
+      Uri.parse(mySite),
     );
   }
 
