@@ -3,7 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import 'components.dart';
+import 'myconnectivity.dart';
 
 class WebViewStack extends StatefulWidget {
   const WebViewStack({required this.controller, super.key});
@@ -16,7 +20,8 @@ class WebViewStack extends StatefulWidget {
 
 class _WebViewStackState extends State<WebViewStack> {
   var loadingPercentage = 0;
-  final String mySite = 'https://flutter.dev';
+  final String mySite = 'https://dekoola.com/';
+  var isOffline = false;
 
   @override
   void initState() {
@@ -41,11 +46,20 @@ class _WebViewStackState extends State<WebViewStack> {
         onNavigationRequest: (navigation) {
           final host = Uri.parse(navigation.url).host;
 
-          if (!host.contains('flutter.dev')) {
+          if (!host.contains('dekoola.com')) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
                   'Blocking navigation to $host',
+                ),
+              ),
+            );
+            // return NavigationDecision.prevent;
+          } else if (isOffline) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text(
+                  'Connect to internet to continue',
                 ),
               ),
             );
@@ -71,6 +85,11 @@ class _WebViewStackState extends State<WebViewStack> {
           LinearProgressIndicator(
             value: loadingPercentage / 100.0,
           ),
+        Consumer<Myconnectivity>(builder: (context, myconnectivity, child) {
+          isOffline = myconnectivity.offline;
+          return Text('${myconnectivity.offline}');
+        }),
+        if (isOffline) buildAlertIconWithText(),
       ],
     );
   }
