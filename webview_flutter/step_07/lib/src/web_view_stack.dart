@@ -69,6 +69,7 @@ class _WebViewStackState extends State<WebViewStack> {
         },
       ),
     );
+    widget.controller.setJavaScriptMode(JavaScriptMode.unrestricted);
   }
 
   @override

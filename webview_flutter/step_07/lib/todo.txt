@@ -1,3 +1,5 @@
 
-reload e manter na mesma página
+
 melhorar páginas de offline
+ícones de inicialização
+colocar safearea remover app menu superior
