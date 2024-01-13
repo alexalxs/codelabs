@@ -20,7 +20,7 @@ class WebViewStack extends StatefulWidget {
 
 class _WebViewStackState extends State<WebViewStack> {
   var loadingPercentage = 0;
-  final String mySite = 'https://dekoola.com/';
+
   var isOffline = false;
 
   @override
@@ -68,9 +68,6 @@ class _WebViewStackState extends State<WebViewStack> {
           return NavigationDecision.navigate;
         },
       ),
-    );
-    widget.controller.loadRequest(
-      Uri.parse(mySite),
     );
   }
 

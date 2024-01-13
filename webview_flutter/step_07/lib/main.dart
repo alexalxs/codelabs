@@ -33,10 +33,15 @@ class WebViewApp extends StatefulWidget {
 class _WebViewAppState extends State<WebViewApp> {
   bool isOffline = false; // Declare a variável em um escopo externo
   late final WebViewController controller;
+  final String mySite = 'https://dekoola.com/';
+
   @override
   void initState() {
     super.initState();
     controller = WebViewController();
+    controller.loadRequest(
+      Uri.parse(mySite),
+    );
   }
 
   @override
